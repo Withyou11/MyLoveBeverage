@@ -17,7 +17,38 @@
         android:theme="@style/Theme.MyLoveBeverage"
         tools:targetApi="31">
         <activity
+            android:name=".PostOrder"
+            android:exported="false"
+            android:screenOrientation="reverseLandscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Order"
+            android:exported="false"
+            android:screenOrientation="reverseLandscape"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Manager"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ManageInvoice"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".InvoiceDetail"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

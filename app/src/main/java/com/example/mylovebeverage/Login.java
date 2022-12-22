@@ -1,6 +1,8 @@
 package com.example.mylovebeverage;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -65,23 +67,27 @@ public class Login extends AppCompatActivity {
                         {
                             account = new Account(resultSet.getString(1).trim() ,resultSet.getString(2).trim(), resultSet.getString(3).trim());
                             check_key = account.AuthenticateLogin(username , password);
-                            if(check_key ==2)
+                            if(check_key == 2)
                             {
                                 Toast.makeText(getApplicationContext() , "Wrong password" , Toast.LENGTH_SHORT).show();
                                 break;
                             }else if(check_key == 3)
                             {
-                                Toast.makeText(getApplicationContext() , "welcome to my boss" ,Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext() , "welcome, my boss" ,Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(),Manager.class);
+                                startActivity(intent);
                                 break;
-                            }else if(check_key ==4)
+                            }else if(check_key == 4)
                             {
-                                //se chuyen tiep qua man hinh order tu login.
+                                Toast.makeText(getApplicationContext() , "Welcome to order screen" ,Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(),Order.class);
+                                intent.putExtra("Staff Id", account.getUsername());
+                                startActivity(intent);
                             }
-
                         }
                         resultSet.close();
                         statement.close();
-                        if(check_key ==1)
+                        if(check_key == 1)
                         {
                             Toast.makeText(getApplicationContext() , "Wrong username" , Toast.LENGTH_SHORT).show();
                         }

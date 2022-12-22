@@ -101,7 +101,7 @@ public class ManageInvoice extends FragmentActivity
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE WHERE Price_of_Invoice <= 100000;");
                             invoiceList.removeAll(invoiceList);
                             while (resultSet.next()) {
-                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                                 invoiceList.add(invoice);
                             }
 
@@ -123,7 +123,7 @@ public class ManageInvoice extends FragmentActivity
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE WHERE Price_of_Invoice > 100000 AND Price_of_Invoice <= 1000000;");
                             invoiceList.removeAll(invoiceList);
                             while (resultSet.next()) {
-                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                                 invoiceList.add(invoice);
                             }
 
@@ -145,7 +145,7 @@ public class ManageInvoice extends FragmentActivity
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE WHERE Price_of_Invoice > 1000000;");
                             invoiceList.removeAll(invoiceList);
                             while (resultSet.next()) {
-                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                                 invoiceList.add(invoice);
                             }
 
@@ -169,7 +169,7 @@ public class ManageInvoice extends FragmentActivity
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE WHERE DateTime_Invoice >= '" + lastWeek.getYear() + "-" + lastWeek.getMonth() + "-" + lastWeek.getDayOfMonth() + "';");
                             invoiceList.removeAll(invoiceList);
                             while (resultSet.next()) {
-                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                                 invoiceList.add(invoice);
                             }
 
@@ -193,7 +193,7 @@ public class ManageInvoice extends FragmentActivity
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE WHERE DateTime_Invoice >= '" + lastMonth.getYear() + "-" + lastMonth.getMonth() + "-" + lastMonth.getDayOfMonth() + "';");
                             invoiceList.removeAll(invoiceList);
                             while (resultSet.next()) {
-                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                                 invoiceList.add(invoice);
                             }
 
@@ -217,7 +217,7 @@ public class ManageInvoice extends FragmentActivity
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE WHERE DateTime_Invoice >= '" + lastYear.getYear() + "-" + lastYear.getMonth() + "-" + lastYear.getDayOfMonth() + "';");
                             invoiceList.removeAll(invoiceList);
                             while (resultSet.next()) {
-                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                                invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                                 invoiceList.add(invoice);
                             }
 
@@ -275,7 +275,7 @@ public class ManageInvoice extends FragmentActivity
                 ResultSet resultSet = statement.executeQuery("SELECT * FROM INVOICE;");
                 invoiceList.removeAll(invoiceList);
                 while (resultSet.next()) {
-                    invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4));
+                    invoice = new Invoice(resultSet.getString(1).trim(),resultSet.getString(2).trim(),resultSet.getTimestamp(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getInt(6));
                     invoiceList.add(invoice);
                 }
 
@@ -294,6 +294,7 @@ public class ManageInvoice extends FragmentActivity
         listView = (ListView) findViewById(R.id.invoiceListView);
         InvoiceAdapter invoiceAdapter = new InvoiceAdapter(getApplicationContext(),0,invoiceList);
         listView.setAdapter(invoiceAdapter);
+        invoiceAdapter.notifyDataSetChanged();
     }
 
     private void setUpOnClickListener()

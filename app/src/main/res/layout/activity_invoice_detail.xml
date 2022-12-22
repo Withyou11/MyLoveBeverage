@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="156dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="Invoice code:"
         android:textAlignment="textEnd"
         android:textColor="@color/black"
@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="105dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="TextView"
         android:textAlignment="textStart"
         android:textColor="@color/black"
@@ -95,13 +95,13 @@
     <TextView
         android:id="@+id/txtProductName"
         android:layout_width="210dp"
-        android:layout_height="120dp"
+        android:layout_height="80dp"
         android:layout_marginStart="30dp"
+        android:background="@color/pink_lighter"
         android:gravity="center"
         android:text="Name"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:background="@color/pink_lighter"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/invoiceDetailListView"
@@ -110,7 +110,7 @@
     <TextView
         android:id="@+id/txtProductAmount"
         android:layout_width="210dp"
-        android:layout_height="120dp"
+        android:layout_height="80dp"
         android:background="@color/pink_lighter"
         android:gravity="center"
         android:text="Amount"
@@ -124,7 +124,7 @@
     <TextView
         android:id="@+id/txtProductUnit"
         android:layout_width="210dp"
-        android:layout_height="120dp"
+        android:layout_height="80dp"
         android:background="@color/pink_lighter"
         android:gravity="center"
         android:text="Unit"
@@ -138,12 +138,12 @@
     <TextView
         android:id="@+id/txtProductPrice"
         android:layout_width="210dp"
-        android:layout_height="120dp"
+        android:layout_height="80dp"
+        android:background="@color/pink_lighter"
         android:gravity="center"
-        android:text="Price"
+        android:text="Unit Price"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:background="@color/pink_lighter"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/invoiceDetailListView"
@@ -155,7 +155,7 @@
         android:layout_height="550dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="210dp"
         android:background="@color/pink_lighter"
         android:divider="@color/black"
         android:dividerHeight="3dp"
@@ -164,7 +164,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/lineView"
+        android:id="@+id/lineViewInvoiceDetail"
         android:layout_width="840dp"
         android:layout_height="5dp"
         android:layout_marginStart="30dp"
@@ -175,22 +175,21 @@
     <TextView
         android:id="@+id/txtTotalprice"
         android:layout_width="420dp"
-        android:layout_height="120dp"
+        android:layout_height="80dp"
         android:layout_marginStart="30dp"
         android:background="@color/pink_lighter"
-        android:gravity="center"
         android:text="Total:"
         android:textAlignment="textEnd"
         android:textColor="@color/black"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lineView" />
+        app:layout_constraintTop_toBottomOf="@+id/lineViewInvoiceDetail" />
 
     <TextView
         android:id="@+id/txtDisplayTotalPrice"
         android:layout_width="420dp"
-        android:layout_height="120dp"
+        android:layout_height="80dp"
         android:background="@color/pink_lighter"
         android:gravity="center"
         android:text="2000000"
@@ -199,6 +198,65 @@
         android:textSize="60sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toEndOf="@+id/txtTotalprice"
-        app:layout_constraintTop_toBottomOf="@+id/lineView" />
+        app:layout_constraintTop_toBottomOf="@+id/lineViewInvoiceDetail"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/txtMoneyReceived"
+        android:layout_width="420dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="30dp"
+        android:background="@color/pink_lighter"
+        android:text="Money received:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTotalprice" />
+
+    <TextView
+        android:id="@+id/txtDisplayMoneyReceived"
+        android:layout_width="420dp"
+        android:layout_height="60dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="2000000"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/txtMoneyReceived"
+        app:layout_constraintTop_toBottomOf="@+id/txtDisplayTotalPrice"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/txtMoneyReturned"
+        android:layout_width="420dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="30dp"
+        android:background="@color/pink_lighter"
+        android:text="Money returned:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMoneyReceived" />
+
+    <TextView
+        android:id="@+id/txtDisplayMoneyReturned"
+        android:layout_width="420dp"
+        android:layout_height="60dp"
+        android:background="@color/pink_lighter"
+        android:gravity="center"
+        android:text="2000000"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/txtMoneyReturned"
+        app:layout_constraintTop_toBottomOf="@+id/txtDisplayMoneyReceived"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
