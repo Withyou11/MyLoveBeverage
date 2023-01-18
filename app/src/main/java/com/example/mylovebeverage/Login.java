@@ -10,7 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import com.example.mylovebeverage.Data.Connecting_MSSQL;
+import com.example.mylovebeverage.Models.Data.Connecting_MSSQL;
 import com.example.mylovebeverage.Models.Account;
 import com.example.mylovebeverage.databinding.ActivityLoginBinding;
 import java.sql.SQLException;
@@ -81,7 +81,10 @@ public class Login extends AppCompatActivity {
                                 break;
                             }else if(check_key ==4)
                             {
-                                //se chuyen tiep qua man hinh order tu login.
+                                Intent intent = new Intent(getApplicationContext(),Order.class);
+                                intent.putExtra("Staff Id", account.getUsername());
+                                startActivity(intent);
+                                break;
                             }
 
                         }
